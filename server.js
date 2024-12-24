@@ -1,28 +1,28 @@
-// Import required modules
+// Importar os módulos necessários
 const express = require('express');
 const path = require('path');
 const app = express();
 
-// Serve static files from the "public" directory
+// Serve arquivos estáticos da pasta "public"
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Define the main route
+// Definir a rota principal
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Define the main screen route
+// Definir a rota para a tela principal
 app.get('/main', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'main.html'));
 });
 
-// Define the bot screen route
+// Definir a rota para a tela do bot
 app.get('/bot', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'bot.html'));
 });
 
-// Start the server
-const PORT = process.env.PORT || 3000;
+// Iniciar o servidor
+const PORT = process.env.PORT || 3000; // Usar a porta definida pelo Vercel ou 3000
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Servidor está rodando em http://localhost:${PORT}`);
 });
